@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class ToDoServiceTest {
+public class ToDoServiceIntegrationTest {
 
     @Autowired
     private ToDoRepository toDoRepository;
