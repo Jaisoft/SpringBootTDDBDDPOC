@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
-public class ToDoControllerTest {
+public class ToDoControllerUnitTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -37,16 +37,16 @@ public class ToDoControllerTest {
     private ToDoService toDoService;
 
     @Test
-    void getAllToDos() throws Exception {
+    void givenFullList_whenFindAll_thenReturnFullList() throws Exception {
+
         List<ToDo> toDoList = new ArrayList<ToDo>();
         toDoList.add(new ToDo(1L,"Eat thrice",true));
         toDoList.add(new ToDo(2L,"Seep Twice",true));
 
         when(toDoService.findAll()).thenReturn(toDoList);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/todos")
-                .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(jsonPath("$", hasSize(2))).andDo(print());
+        mockMvc.perform(MockMvcRequestBuilders.get("/todos").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$", hasSize(2))).andDo(print());
     }
 
 

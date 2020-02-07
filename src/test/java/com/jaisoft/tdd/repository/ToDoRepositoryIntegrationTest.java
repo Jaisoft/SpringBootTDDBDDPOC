@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
-public class ToDoRepositoryUnitTest {
+public class ToDoRepositoryIntegrationTest {
 
     @Autowired
     private TestEntityManager testEntityManager;
